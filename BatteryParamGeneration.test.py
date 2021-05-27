@@ -3,7 +3,7 @@
 #import unittest
 from Predefined_values import NumOfItteration
 from Predefined_values import limit
-import GenerateSenderOutput
+import GenerateSenderOutput import *
 #RandomGenerateParameter,CheckLimitOfBatteryParam,FormBatteryParamList,SenderOutputOrReceiverInput,ConvertItterationCountToString,SenderOutputGeneratedOrNot 
 
 '''class RandomGeneratorTest(unittest.TestCase):
