@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 import unittest
-from Predefined_values import NumOfItteration
-from Predefined_values import limit
-#from GenerateSenderOutput import *
-import GenerateSenderOutput 
-#RandomGenerateParameter,CheckLimitOfBatteryParam,FormBatteryParamList,SenderOutputOrReceiverInput,ConvertItterationCountToString,SenderOutputGeneratedOrNot 
-
+from Predefined_values import NumOfItteration, limit
+#from GenerateSenderOutput import RandomGenerateParameter,CheckLimitOfBatteryParam,FormBatteryParamList,SenderOutputOrReceiverInput,ConvertItterationCountToString,SenderOutputGeneratedOrNot 
+import GenerateSenderOutput
+#class RandomGeneratorTest(unittest.TestCase):
+    
+    #def TestNoOfItterationValue(self):
 class RandomGeneratorTest(unittest.TestCase):
     
     def TestItterationCountType(self):
@@ -15,7 +13,8 @@ class RandomGeneratorTest(unittest.TestCase):
      
     def TestNoOfItterationMorethanMin(self):
         self.assertTrue(GenerateSenderOutput.RandomGenerateParameter(4) == 'Minimum itteration should be more than 5')
-        self.assertTrue(GenerateSenderOutput.RandomGenerateParameter(10) == 'Battery parameter generated for Receiver')
+        assert(GenerateSenderOutput.RandomGenerateParameter(10) == 'Battery parameter generated for Receiver')
+        GenerateSenderOutput.RandomGenerateParameter(10)
         
     def TestSenderOutputCorrectlyGenerated(self):
         self.assertTrue(GenerateSenderOutput.SenderOutputOrReceiverInput([[['temperature 0', 76, 'check_limit'], ['state_of_charge 0', 22, 'Limit OK']]]) == True)
@@ -31,8 +30,9 @@ class RandomGeneratorTest(unittest.TestCase):
     def TestFormationOfBatteryParamList(self):
         self.assertTrue(GenerateSenderOutput.FormBatteryParamList(3,'temperature', 56, limit['temperature']) == ['temperature 3', 56, 'check_limit'])
         self.assertTrue(GenerateSenderOutput.FormBatteryParamList(1,'state_of_charge', 71, limit['state_of_charge']) == ['state_of_charge 1', 71, 'Limit OK'])
-        self.assertTrue(GenerateSenderOutput.FormBatteryParamList(2,'charge_rate', 35, limit['charge_rate']) == 'Battery Parameter Not Valid'
-        
+        self.assertTrue(GenerateSenderOutput.FormBatteryParamList(2,'charge_rate', 35, limit['charge_rate']) == 'Battery Parameter Not Valid')
+         
+
 
 if __name__ == '__main__':
     unittest.main()
