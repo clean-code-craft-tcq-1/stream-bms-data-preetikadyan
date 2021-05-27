@@ -55,6 +55,7 @@ if __name__ == '__main__':
     assert(FormBatteryParamList(1,'state_of_charge', 71, limit['state_of_charge']) == ['state_of_charge 1', 71, 'Limit OK'])
     assert(FormBatteryParamList(2,'charge_rate', 35, limit['charge_rate']) == 'Battery Parameter Not Valid')
     
-    assert(CheckLimitOfBatteryParam(10,{'temperature' : 20, 'state_of_charge' : 40}) == [['temperature 10', 20, 'Limit OK'], ['state_of_charge 10', 40, 'Limit OK']])'''
+    assert(CheckLimitOfBatteryParam(10,{'temperature' : 20, 'state_of_charge' : 40}) == [['temperature 10', 20, 'Limit OK'], ['state_of_charge 10', 40, 'Limit OK']])
+    '''
     
     
