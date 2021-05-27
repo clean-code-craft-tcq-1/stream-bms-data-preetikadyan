@@ -9,6 +9,7 @@ import random
 from Predefined_values import limit,NumOfItteration
 
 
+#randomly generating (#NumOfitteration) values for the battery parameter 'temperature' and 'state_of_charge' 
 def RandomGenerateParameter(NumOfItteration):
     BatteryParam = []
     if NumOfItteration > 5: #to make sure atleast more than 5 random values are generated for the Battery Parameters
@@ -28,7 +29,9 @@ def RandomGenerateParameter(NumOfItteration):
         
     else:
         return 'Minimum itteration should be more than 5'
-        
+    
+    
+#check if the battery parameter is in the key of the prdefined list "limit" - on temeprature and state_of_chare considered
 def CheckLimitOfBatteryParam(itterationCount,Battery_Life_Parameters):
 
     BatteryParam = []
@@ -37,12 +40,14 @@ def CheckLimitOfBatteryParam(itterationCount,Battery_Life_Parameters):
          
     return BatteryParam
 
+#My intention is to keep track of the no. of random values generated so to do so I will concatenate the count with the battery parameter 
 def ConvertItterationCountToString(itterationCount):
     
      if type(itterationCount) != 'str':
          itterationCount = str(itterationCount)
      return itterationCount 
-   
+
+#To form the battery parameter list by checking the min max limit(append 'check_limit'in case not with range else append 'limit_OK') 
 def FormBatteryParamList(itterationCount,battery_parameter,parameter_value,parameter_limit):
      BatteryParam = []
      
@@ -65,7 +70,8 @@ def FormBatteryParamList(itterationCount,battery_parameter,parameter_value,param
              
      return BatteryParam        
              
-             
+
+#to print the sender output and to set the value 'true' if generated or printed else 'false'
 def SenderOutputOrReceiverInput(BatteryParam): 
    
     if len(BatteryParam) != 0: #to make sure battery parameter is not empty
@@ -73,7 +79,8 @@ def SenderOutputOrReceiverInput(BatteryParam):
         return True
     else:
         return False
-    
+ 
+#to give information to the user if battery parameter generated or not
 def SenderOutputGeneratedOrNot(Sent_or_not):    
     
     if Sent_or_not == True :
