@@ -75,7 +75,7 @@ def FormBatteryParamList(itterationCount,battery_parameter,parameter_value,param
 def SenderOutputOrReceiverInput(BatteryParam): 
    
     if len(BatteryParam) != 0: #to make sure battery parameter is not empty
-        print(BatteryParam)
+        print(f' SENDER OUTPUT ----->   {BatteryParam}')
         return True
     else:
         return False
