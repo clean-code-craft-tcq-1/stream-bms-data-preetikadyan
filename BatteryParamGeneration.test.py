@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from Predefined_values import NumOfItteration,limit
+from Predefined_values import NumOfItteration
+from Predefined_values import limit
 import GenerateSenderOutput
 #RandomGenerateParameter,CheckLimitOfBatteryParam,FormBatteryParamList,SenderOutputOrReceiverInput,ConvertItterationCountToString,SenderOutputGeneratedOrNot 
 
