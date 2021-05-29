@@ -14,7 +14,7 @@ def RandomGenerateParameter(NumOfItteration):
     BatteryParam = []
     if NumOfItteration > 5: #to make sure atleast more than 5 random values are generated for the Battery Parameters
         
-        for i in range(0, NumOfItteration + 1):
+        for i in range(1, NumOfItteration + 1):
             temp = random.randint(0,100) #Alwaus integer value will be generated within the desired range
             soc = random.randint(0,100)#so no need to check or test 'temp or 'soc' if they are null or not
         
@@ -77,7 +77,7 @@ def SenderOutputOrReceiverInput(BatteryParam):
     if len(BatteryParam) != 0: #to make sure battery parameter is not empty
         print("--------------------------------SENDER OUTPUT------------------------")
         print(f' {BatteryParam}')
-        print("-----------------------S--------ENDER OUTPUT END---------------------")
+        print("--------------------------------SENDER OUTPUT END---------------------")
         return True
     else:
         return False
@@ -89,7 +89,3 @@ def SenderOutputGeneratedOrNot(Sent_or_not):
         return 'Battery parameter generated for Receiver'
     else:
         return 'Battery parameter not generated for Receiver'
-
-#if __name__ == '__main__':
-   #RandomGenerateParameter(NumOfItteration)    
-     
