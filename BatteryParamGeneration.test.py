@@ -9,7 +9,7 @@ class RandomGeneratorTest(unittest.TestCase):
      
     def test_NoOfItteration_MorethanMin(self):
         self.assertTrue(GenerateSenderOutput.RandomGenerateParameter(4) == 'Minimum itteration should be more than 5')
-        self.assertTrue(GenerateSenderOutput.RandomGenerateParameter(10) == 'Battery parameter generated for Receiver')
+        self.assertTrue(GenerateSenderOutput.RandomGenerateParameter(7) == 'Battery parameter generated for Receiver')
         
     def test_SenderOutput_Correctly_Generated(self):
         self.assertTrue(GenerateSenderOutput.SenderOutputOrReceiverInput([[['temperature 0', 76, 'check_limit'], ['state_of_charge 0', 22, 'Limit OK']]]) == True)
