@@ -1,6 +1,6 @@
 # Streaming BMS Data
 
-This project is about sending and receiving BMS data.
+This project is about sending and receiving BMS data. 
 
 ## Decomposition
 
