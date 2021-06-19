@@ -15,7 +15,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
     - name: build
-      run: gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Rx/tst/UT/UTReciever/*.c
+      working-directory: ./Rx/tst/UT/UTReciever/
+      run: gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o ./Rx/tst/UT/UTReciever/testchecker *.c
       
     - name: run
       run: ./testchecker
