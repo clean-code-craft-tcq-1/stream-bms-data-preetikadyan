@@ -15,4 +15,4 @@ extern void GenerateDecrementalValues(void);
 extern Status_t ret_getbatparamvauluefromlist;
 extern int call_GetBatteryParamValueFromList;
 extern int GetBatteryParamValueFromList_value;
-
+extern void ResetStubs (void);
