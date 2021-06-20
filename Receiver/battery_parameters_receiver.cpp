@@ -6,22 +6,22 @@ using namespace std;
 
 void Battery_Parameter_Receiver::receive_data_from_console()
 {
+    string sender_data_heading; 
     string sender_data;
     Parameters parameter;
-    for(int i = 0;i<=7;i++)
-    {
-      std::getline(std::cin, sender_data);
-       printf("Sender data is %s \n", sender_data.c_str());	    
-    }
     
+     std::getline(std::cin, sender_data_heading);
+     std::getline(std::cin, sender_data);
+    printf("Sender data is %s \n", sender_data.c_str());
   
     string temp_data,temp_data1,temp_data2;
-    //printf("Sender data is %s \n", sender_data.c_str());
+    
 
     int temp_arr[6],soc_arr[6];
     int count_temp,count_soc= 0;
     int i;
     int n = sender_data.length() ;
+    printf("data length is %d \n", n);
     std::cout << sender_data << std::endl;
     std::cout << sender_data.length() << std::endl;
     for( i=0; i < n; i++)
@@ -34,23 +34,23 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
               temp_data = temp_data1 + temp_data2;
-	      std::cout << "temperature " << temp_data << std::endl;
-              //temp_arr[count_temp] = std::stoi(temp_data);
-	       parameter.json_string = temp_data; 
-	      std::cout << "temperature " << parameter.json_string << std::endl;
+	      printf("temp value is %s \n", temp_data.c_str());
+              temp_arr[count_temp] = std::stoi(temp_data);
+	      parameter.Temperrature = temp_arr[count_temp]; 
+	      printf("temp value in parameter is %d \n", parameter.Temperrature);
               count_temp++;
             }
         }
-        else if(sender_data[i] == 'S')
-        {
-            if(i < (n-8))
-            {
-              i=i+7;
-              temp_data1 = sender_data[i];
-              temp_data2 = sender_data[i+1];
-              temp_data = temp_data1 + temp_data2;
+     //   else if(sender_data[i] == 'S')
+     //   {
+       //     if(i < (n-8))
+         //   {
+           //   i=i+7;
+            //  temp_data1 = sender_data[i];
+              //temp_data2 = sender_data[i+1];
+              //temp_data = temp_data1 + temp_data2;
              // soc_arr[count_soc] = std::stoi(temp_data);
-              count_soc++;
+              //count_soc++;
             }
         }
     }
