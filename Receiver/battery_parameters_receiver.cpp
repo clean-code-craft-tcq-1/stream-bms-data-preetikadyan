@@ -25,14 +25,11 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               i=i+15;
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
-              //if(sender_data[i+2] != ',')
-              //{
-                  //temp_data3 = sender_data[i+2];
-              //}
               temp_data = temp_data1 + temp_data2;
 	      std::cout << "temperature " << temp_data << std::endl;
-              temp_arr[count_temp] = std::stoi(temp_data);
-	      
+              //temp_arr[count_temp] = std::stoi(temp_data);
+	       parameter.json_string = temp_data; 
+	      std::cout << "temperature " << parameter.json_string << std::endl;
               count_temp++;
             }
         }
@@ -44,21 +41,22 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
               temp_data = temp_data1 + temp_data2;
-              soc_arr[count_soc] = std::stoi(temp_data);
+             // soc_arr[count_soc] = std::stoi(temp_data);
               count_soc++;
             }
         }
     }
-      for(int i =0;i<count_temp;i++)
-        {
-            std::cout << "temperature " << i << " value: " << temp_arr[i] << std::endl;
-	    parameter.Temperrature = temp_arr[i];
-        }
-         for(int i =0;i<count_soc;i++)
-        {
-            std::cout << "SOC " << i << " value: " << soc_arr[i] << std::endl;
-            parameter.SOC = soc_arr[i];
-        }
+     // for(int i =0;i<count_temp;i++)
+     //   {
+          //  std::cout << "temperature " << i << " value: " << temp_arr[i] << std::endl;
+	   // parameter.Temperrature = temp_arr[i];
+	    
+      //  }
+      //   for(int i =0;i<count_soc;i++)
+     //   {
+          //  std::cout << "SOC " << i << " value: " << soc_arr[i] << std::endl;
+           // parameter.SOC = soc_arr[i];
+      //  }
 	
 }
 
