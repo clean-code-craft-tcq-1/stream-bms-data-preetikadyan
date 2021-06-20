@@ -4,7 +4,7 @@ using namespace std;
 #include <sstream>
 #include <cctype> 
 
-void Battery_Parameter_Receiver::receive_data_from_console()
+void Battery_Parameter_Receiver::get_data_from_console()
 {
     string sender_data_heading; 
     string sender_data;
