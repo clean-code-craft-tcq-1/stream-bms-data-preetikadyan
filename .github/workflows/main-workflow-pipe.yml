@@ -37,10 +37,7 @@ jobs:
         flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
       
     - name: run pipe
-      run:  python BatteryParamGeneration.test.py | ./receiver-executable
-
-    - name: run receiver test
-      run: ./receiver-test      
+      run:  python BatteryParamGeneration.test.py | ./receiver-executable   
 
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html
