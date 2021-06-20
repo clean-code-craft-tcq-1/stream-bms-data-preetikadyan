@@ -37,9 +37,23 @@ void TC_GetBatteryParamValueFromList(void)
     assert(number == 0);
 }
 
-void TC_GetBatteryParamValueFromListIllegalFormat(void)
+void TC_IllegalParamValueForASCIIcharbelow0(void)
 {
-    char *string = "...*#$.......,";
+    char *string = "./#$.......,";
+    int number;
+    Status_t status;
+    ListReaderState = ListReader_ContainsData;
+    scan = &scanf_mock;
+    inputstring = string;
+    status = GetBatteryParamValueFromList(&number);
+    assert(ListReaderState == ListReader_IllegalFormat);
+    assert(status == Status_NotOk);
+    assert(IsListReadingAllowed() == 0);
+}
+
+void TC_IllegalParamValueForASCIIcharAbove9(void)
+{
+    char *string = ".:#$.......,";
     int number;
     Status_t status;
     ListReaderState = ListReader_ContainsData;

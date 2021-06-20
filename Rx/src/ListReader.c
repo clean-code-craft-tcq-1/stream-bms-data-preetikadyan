@@ -42,8 +42,9 @@ static char ReadCharFromStdin(void)
 static void Readthestreamuntil(char par_ch)
 {
     char ch;
-    while(scan("%c",&ch)>0)
+    while(1)
     {
+        scan("%c",&ch);
         if(ch == par_ch)
         {
             break;
