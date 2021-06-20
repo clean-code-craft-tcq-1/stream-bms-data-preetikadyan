@@ -24,7 +24,7 @@ void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
     
     for(int i=0; i < n; i++)
     {
-        if((sender_data[i] == 't') && (sender_data[i+1] == 'e') && (sender_data[i+2] == 'm'))
+        if((sender_data[i] == 't') && (sender_data[i+2] == 'm'))
         {
               i=i+16;
               temp_data[0] =sender_data[i];
