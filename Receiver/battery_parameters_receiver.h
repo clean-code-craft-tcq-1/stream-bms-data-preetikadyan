@@ -15,8 +15,8 @@ typedef struct
 class Battery_Parameter_Receiver
 {
 	vector<Parameters> parameter_list;
-	
+	public:	
 	void receive_data_from_console();
-	bool parse_data(string data, Parameters &parameter);
+	//bool parse_data(string data, Parameters &parameter);
 };
 
