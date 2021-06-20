@@ -98,10 +98,7 @@ int Battery_Parameter_Receiver::calculate_parameter_avg(vector<int> parameter_va
 {
     int size = sizeof(parameter_values)/sizeof(parameter_values[0]);
     int sum; int avg;
-    for(int i =0; i<6;i++)
-    {
-        sum = parameter_values[size-1]+ parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4]+parameter_values[size-5];             
-    }
+    sum = parameter_values[size-1]+ parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4]+parameter_values[size-5];   
    
     avg = sum/5; // Simple moving avearge for Last 5 readings.
     std::cout << "Simple moving average for Last 5 values "<< avg  << std::endl;
