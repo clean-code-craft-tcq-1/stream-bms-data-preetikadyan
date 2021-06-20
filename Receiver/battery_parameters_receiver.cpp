@@ -12,8 +12,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
     
      std::getline(std::cin, sender_data_heading);
      std::getline(std::cin, sender_data);
-    printf("Sender data is %s \n", sender_data.c_str());
-  
+
     string temp_data,temp_data1,temp_data2;
     
 
@@ -21,23 +20,25 @@ void Battery_Parameter_Receiver::receive_data_from_console()
     int count_temp,count_soc= 0;
     int i;
     int n = sender_data.length() ;
-    printf("data length is %d \n", n);
-    std::cout << sender_data << std::endl;
-    std::cout << sender_data.length() << std::endl;
+    std::cout <<"sender data is" <<sender_data << std::endl;
+    std::cout << "length of data is "<< sender_data.length() << std::endl;
+    std::cout << "first char of data is "<< sender_data[0] << std::endl;	
     for( i=0; i < n; i++)
     {
         if((sender_data[i] == 't') && (sender_data[i+1] == 'e'))
         {
+           std::cout << "first t is "<< i << std::endl;
             if(i < (n-16))
             {
               i=i+15;
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
               temp_data = temp_data1 + temp_data2;
-	      printf("temp value is %s \n", temp_data.c_str());
-              temp_arr[count_temp] = std::stoi(temp_data);
-	      parameter.Temperrature = temp_arr[count_temp]; 
-	      printf("temp value in parameter is %f \n", parameter.Temperrature);
+	      std::cout << "temp_data is "<< temp_data << std::endl;
+	     // printf("temp value is %s \n", temp_data.c_str());
+             // temp_arr[count_temp] = std::stoi(temp_data);
+	      //parameter.Temperrature = temp_arr[count_temp]; 
+	     // printf("temp value in parameter is %f \n", parameter.Temperrature);
               count_temp++;
             }
         }
