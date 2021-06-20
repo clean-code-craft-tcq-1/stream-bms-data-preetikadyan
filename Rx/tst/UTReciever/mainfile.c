@@ -37,6 +37,8 @@ TC_EvaluatePrintfParametersInCalculateMax();
 Environment_Initialization(); 
 TC_EvaluatePrintfParametersInCalculateMin(); 
 Environment_Initialization(); 
-TC_EvaluatePrintfParametersInMovingAverage();
+TC_EvaluatePrintfParametersInMovingAverage(); 
+Environment_Initialization(); 
+TC_EvaluateIfListReaderInitCalled();
 return 0;
 }

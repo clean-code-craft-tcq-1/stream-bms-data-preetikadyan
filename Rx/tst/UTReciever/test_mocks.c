@@ -58,15 +58,15 @@ float MovingAverage;
 
 int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value)
 {
-    strcpy(par_fmt,fmt);
-    strcpy(par_paramname,paramname);
+    strcpy(fmt,par_fmt);
+    strcpy(paramname,par_paramname);
     value = par_value;
 }
 
-int printfmockforMovingAverage(char *par_fmt, float par_MovingAverage, char *par_pramname)
+int printfmockforMovingAverage(char *par_fmt, float par_MovingAverage, char *par_paramname)
 {
-    strcpy(par_fmt,fmt);
-    strcpy(par_pramname,paramname);
+    strcpy(fmt,par_fmt);
+    //strcpy(paramname,par_paramname);
     MovingAverage = par_MovingAverage;
 }
 

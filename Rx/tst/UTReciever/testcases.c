@@ -305,10 +305,19 @@ void TC_EvaluatePrintfParametersInCalculateMin(void)
 
 void TC_EvaluatePrintfParametersInMovingAverage(void)
 {
-    CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].MovingAverage = 25.1;
+    CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].NumberofSamplesCollected = 4;
+    Reciever_sm.param = BatteryParameter_Temparature;
     print = &printfmockforMovingAverage;
     Execute_CalculateMovingAverage(&Reciever_sm);
     assert(strcmp(fmt,"%f is the moving average for %s\n")==0);
-    assert(strcmp(paramname,"Temparature")==0);
+//    assert(strcmp(paramname,"Temparature")==0);
     assert(MovingAverage ==  CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].MovingAverage);
+}
+
+void TC_EvaluateIfListReaderInitCalled(void)
+{
+    GenerateValuesForBatteryParam = &GenerateIncrementalValues;
+    MaxCall_IsListReadingAllowed = 1;
+    Reciever_Main();
+    assert(call_ListReaderInit == 1);
 }
