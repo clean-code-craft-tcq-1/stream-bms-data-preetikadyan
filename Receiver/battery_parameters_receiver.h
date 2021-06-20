@@ -4,19 +4,21 @@
 #include <string>
 using namespace std;
 
-typedef struct
+class BMS_Receiver
 {
-	string json_string;
-	double SOC;
-	double Temperrature;
-}Parameters;
-
-
-class Battery_Parameter_Receiver
-{
-	vector<Parameters> parameter_list;
-	public:	
-	void receive_data_from_console();
-	//bool parse_data(string data, Parameters &parameter);
+	vector<int> temperature_values;
+	vector<int> soc_values;
+	int min_temp;
+	int max_temp;
+	int temp_moving_avg;
+	
+	public:
+	void get_data_from_console();
+	void get_temperature_values(string sender_data);
+	void get_soc_values(string sender_data);
+	int calculate_parameter_max(vector<int> parameter_values);
+	int calculate_parameter_min(vector<int> parameter_values);
+	int calculate_parameter_avg(vector<int> parameter_values);
+	
+	//double calculate_simple_moving_average(vector<Parameters> parameter_list);
 };
-
