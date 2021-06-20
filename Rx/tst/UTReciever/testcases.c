@@ -310,7 +310,7 @@ void TC_EvaluatePrintfParametersInMovingAverage(void)
     print = &printfmockforMovingAverage;
     Execute_CalculateMovingAverage(&Reciever_sm);
     assert(strcmp(fmt,"%f is the moving average for %s\n")==0);
-//    assert(strcmp(paramname,"Temparature")==0);
+    assert(strcmp(paramname,"Temparature")==0);
     assert(MovingAverage ==  CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].MovingAverage);
 }
 

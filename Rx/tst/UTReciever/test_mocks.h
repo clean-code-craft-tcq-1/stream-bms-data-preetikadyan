@@ -21,5 +21,5 @@ extern char paramname[20];
 extern int value;
 extern float MovingAverage;
 extern int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value);
-extern int printfmockforMovingAverage(char *par_fmt, float par_MovingAverage, char *par_pramname);
+extern int printfmockforMovingAverage(char *par_fmt, double par_MovingAverage, char *par_paramname);
 extern void ResetStubs (void);

@@ -1,5 +1,6 @@
 
 #include "testcases.h"
+#include <stdio.h>
 int main()
 {
 Environment_Initialization(); 
@@ -40,5 +41,6 @@ Environment_Initialization();
 TC_EvaluatePrintfParametersInMovingAverage(); 
 Environment_Initialization(); 
 TC_EvaluateIfListReaderInitCalled();
+printf("End Of TestCase Execution \n");
 return 0;
 }
