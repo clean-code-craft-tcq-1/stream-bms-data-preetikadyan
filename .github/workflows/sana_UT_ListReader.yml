@@ -1,4 +1,4 @@
-name: UTBMSDataSender
+name: UT_ListReader
 
 on: [push,pull_request]
 
