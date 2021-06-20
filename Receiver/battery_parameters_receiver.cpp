@@ -4,15 +4,10 @@ using namespace std;
 
 void Battery_Parameter_Receiver::receive_data_from_console()
 {
-	string sender_data;
-	
-	for (int i = 0; i < 15;i++)
-	{
-		Parameters parameter;
-		std::getline(std::cin, sender_data);
-	}
-	
-	    string temp_data,temp_data1,temp_data2;
+    string sender_data;
+    Parameters parameter;
+    std::getline(std::cin, sender_data);
+    string temp_data,temp_data1,temp_data2;
 
     int temp_arr[6],soc_arr[6];
     int count_temp,count_soc= 0;
