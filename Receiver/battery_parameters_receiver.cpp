@@ -14,7 +14,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
 	
 	    string temp_data,temp_data1,temp_data2;
 
-    int temp_arr[3],soc_arr[3];
+    int temp_arr[6],soc_arr[6];
     int count_temp,count_soc= 0;
     int i;
     int n = sender_data.length() ;
@@ -54,11 +54,14 @@ void Battery_Parameter_Receiver::receive_data_from_console()
       for(int i =0;i<count_temp;i++)
         {
             std::cout << "temperature " << i << " value: " << temp_arr[i] << std::endl;
+	    parameter.Temperrature = temp_arr[i];
         }
          for(int i =0;i<count_soc;i++)
         {
             std::cout << "SOC " << i << " value: " << soc_arr[i] << std::endl;
+            parameter.SOC = soc_arr[i];
         }
+	
 }
 
 
