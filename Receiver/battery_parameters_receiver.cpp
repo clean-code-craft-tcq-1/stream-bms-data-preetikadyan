@@ -25,7 +25,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
     std::cout << "first char of data is "<< sender_data[0] << std::endl;	
     for( i=0; i < n; i++)
     {
-        if((sender_data[i] == 't') && (sender_data[i+1] == 'e'))
+        if((sender_data[i] == 't') && (sender_data[i+1] == 'e') && (sender_data[i+2] == 'm'))
         {
            std::cout << "first t is "<< i << std::endl;
             if(i < (n-16))
@@ -34,6 +34,8 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
               temp_data = temp_data1 + temp_data2;
+	      std::cout << "temp_data1 is "<< temp_data1 << std::endl;
+	      std::cout << "temp_data2 is "<< temp_data2 << std::endl;
 	      std::cout << "temp_data is "<< temp_data << std::endl;
 	     // printf("temp value is %s \n", temp_data.c_str());
              // temp_arr[count_temp] = std::stoi(temp_data);
