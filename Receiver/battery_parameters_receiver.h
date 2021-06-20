@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-class BMS_Receiver
+class Battery_Parameter_Receiver
 {
 	vector<int> temperature_values;
 	vector<int> soc_values;
