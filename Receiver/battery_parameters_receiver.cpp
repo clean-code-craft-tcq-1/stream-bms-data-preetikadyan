@@ -57,7 +57,7 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
         }
        
     }
-   std::cout << "temp values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
+   std::cout << "SOC values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
     calculate_parameter_max(soc_values);
     calculate_parameter_min(soc_values);
     calculate_parameter_avg(soc_values);
@@ -74,8 +74,7 @@ int Battery_Parameter_Receiver::calculate_parameter_max(vector<int> parameter_va
             
         }
     }
- 
-    std::cout << "min Temp value "<< max  << std::endl;
+    std::cout << "Max value "<< max  << std::endl;
     return max;
 }
 
@@ -91,23 +90,21 @@ int Battery_Parameter_Receiver::calculate_parameter_min(vector<int> parameter_va
         }
     }
  
-    std::cout << "min Temp value "<< min  << std::endl;
+    std::cout << "Min value "<< min  << std::endl;
     return min;
 }
 
 int Battery_Parameter_Receiver::calculate_parameter_avg(vector<int> parameter_values)
 {
-    int count = 6 ;
-    int n = sizeof(parameter_values)/sizeof(parameter_values[0]);
-     std::cout << "size "<< n  << std::endl;
+    int size = sizeof(parameter_values)/sizeof(parameter_values[0]);
     int sum; int avg;
     for(int i =0; i<6;i++)
     {
-        sum = parameter_values[n]+ parameter_values[n-1]+parameter_values[n-2]+parameter_values[n-3]+parameter_values[n-4];             
+        sum = parameter_values[size]+ parameter_values[size-1]+parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4];             
     }
    
-    avg = sum/count;
-    std::cout << "avgvalue "<< avg  << std::endl;
+    avg = sum/5; // Simple moving avearge for Last 5 readings.
+    std::cout << "Simple moving average for Last 5 values "<< avg  << std::endl;
     return avg;
 }
 
