@@ -2,12 +2,25 @@
 using namespace std;
 #include <string>
 #include <sstream>
+#include <cctype> 
 
 void Battery_Parameter_Receiver::receive_data_from_console()
 {
     string sender_data;
     Parameters parameter;
-    std::getline(std::cin, sender_data);
+    //std::getline(std::cin, sender_data);
+    std::stringbuf sbuf( std::ios::out ) ; // create a stringbuf
+    auto oldbuf = std::cout.rdbuf( std::addressof(sbuf) ) ; // associate the stringbuf with std::cout
+
+    //std::cout << "hello " << 123 << '\t' << std::fixed << std::showpos << 1235678.9 << " bye!\n\n" ; // use std::cout normally
+
+    //std::cout.rdbuf( oldbuf ) ; // restore cout's original buffer
+
+    std::string output = sbuf.str() ; // get a copy of the underlying string
+   
+    
+    std::cout << output ; // print out the modified output
+    //std::cout << output ; // print out the modified output 
     string temp_data,temp_data1,temp_data2;
     printf("Sender data is %s \n", sender_data.c_str());
 
