@@ -1,11 +1,13 @@
 #include "../../src/Reciever.c"
 #include "test_mocks.h"
 #include <assert.h>
+#include <string.h>
 
 
 void Environment_Initialization(void)
 {
     
+    print = &printf;
     ReadParamStateSpecificData.RxStatus = 0;
 
     CalculateMaxStateSpecificData.maxvalue[BatteryParameter_Temparature] = -1 ;
@@ -270,4 +272,38 @@ void TC_RecieverExitsDuringIllegalFormat(void)
     assert(CalculateMaxStateSpecificData.maxvalue[BatteryParameter_Temparature] == -1) ;
     assert(CalculateMaxStateSpecificData.maxvalue[BatteryParameter_StateOfCharge] == -1);
 
+}
+
+
+void TC_StringToEnumConverter(void)
+{
+    assert(strcmp(BatteryParameterToString[BatteryParameter_Temparature] ,"Temparature") == 0);
+    assert(strcmp(BatteryParameterToString[BatteryParameter_StateOfCharge] ,"StateOfCharge") == 0);
+}
+
+void TC_EvaluatePrintfParametersInCalculateMax(void)
+{
+    Reciever_sm.param = BatteryParameter_Temparature;
+    CalculateMaxStateSpecificData.maxvalue[BatteryParameter_Temparature] = 10;
+    print = &printfmockforMaxandMin;
+    Execute_CalculateMax(&Reciever_sm);
+    assert(strcmp(fmt,"%s max value in the stream of data  is %d\n")==0);
+    assert(strcmp(paramname,"Temparature")==0);
+    assert(value == CalculateMaxStateSpecificData.maxvalue[BatteryParameter_Temparature]);
+}
+
+void TC_EvaluatePrintfParametersInCalculateMin(void)
+{
+    Reciever_sm.param = BatteryParameter_Temparature;
+    CalculateMinStateSpecificData.minvalue[BatteryParameter_Temparature] = 10;
+    print = &printfmockforMaxandMin;
+    Execute_CalculateMin(&Reciever_sm);
+    assert(strcmp(fmt,"%s min value in the stream of data  is %d\n")==0);
+    assert(strcmp(paramname,"Temparature")==0);
+    assert(value ==  CalculateMinStateSpecificData.minvalue[BatteryParameter_Temparature]);
+}
+
+void TC_EvaluatePrintfParametersInMovingAverage(void)
+{
+    
 }

@@ -51,6 +51,16 @@ Status_t GetBatteryParamValueFromList(int *buf)
     return ret_getbatparamvauluefromlist;
 }
 
+char fmt[150];
+char paramname[20];
+int value;
+
+int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value)
+{
+    strcpy(par_fmt,fmt);
+    strcpy(par_paramname,paramname);
+    value = par_value;
+}
 
 void ResetStubs (void)
 {
@@ -61,4 +71,8 @@ void ResetStubs (void)
     call_GetBatteryParamValueFromList = 0;
     GetBatteryParamValueFromList_value = 0;
     GenerateValuesForBatteryParam = 0;
+    
+    memset(fmt,0,150);
+    memset(paramname,0,20);
+    value = 0;
 }

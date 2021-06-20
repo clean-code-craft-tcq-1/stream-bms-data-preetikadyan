@@ -15,4 +15,9 @@ extern void GenerateDecrementalValues(void);
 extern Status_t ret_getbatparamvauluefromlist;
 extern int call_GetBatteryParamValueFromList;
 extern int GetBatteryParamValueFromList_value;
+
+extern char fmt[150];
+extern char paramname[20];
+extern int value;
+extern int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value);
 extern void ResetStubs (void);

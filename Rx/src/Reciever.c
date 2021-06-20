@@ -4,6 +4,9 @@
 #include <assert.h>
 #include "ListReader.h"
 
+//testdouble
+int (*print)(const char * format, ...) = &printf;
+
 const char *BatteryParameterToString[BatteryParameter_TotalNumber] = {
     "Temparature","StateOfCharge"
 };
@@ -50,7 +53,7 @@ void Execute_CalculateMax(statemachine_t *sm)
     {
         CalculateMaxStateSpecificData.maxvalue[param] = sm->parambuff[param];
     }
-    printf("%s max value in the stream of data  is %d\n", BatteryParameterToString[param], CalculateMaxStateSpecificData.maxvalue[param]);
+    print("%s max value in the stream of data  is %d\n", BatteryParameterToString[param], CalculateMaxStateSpecificData.maxvalue[param]);
     
 }
 
@@ -73,7 +76,7 @@ void Execute_CalculateMin(statemachine_t *sm)
     {
         CalculateMinStateSpecificData.minvalue[param] = sm->parambuff[param];
     }
-    printf("%s min value in the stream of data  is %d\n", BatteryParameterToString[param], CalculateMinStateSpecificData.minvalue[param]);
+    print("%s min value in the stream of data  is %d\n", BatteryParameterToString[param], CalculateMinStateSpecificData.minvalue[param]);
     
 }
 
@@ -101,6 +104,7 @@ static CalculateMovingAvergaeStateSpecific_t CalculateMovingAvergaeStateSpecific
 
 void Execute_CalculateMovingAverage(statemachine_t *sm)
 {
+    assert(CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage !=0 );
     CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples += sm->parambuff[sm->param];
     CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected++;
     if(CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected == 
@@ -110,7 +114,7 @@ void Execute_CalculateMovingAverage(statemachine_t *sm)
                                 (CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples/CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage);
         CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected = 0;
         CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples = 0;
-        printf("%f is the moving average for %s\n",CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage,BatteryParameterToString[sm->param]);
+        print("%f is the moving average for %s\n",CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage,BatteryParameterToString[sm->param]);
     }
 }
 
@@ -130,9 +134,6 @@ void updateState_Exit(statemachine_t *sm)
     if(sm->IsRxTerminationRequested == 0)
     {
         sm->state = sm->listOfStates[State_RecieveData];
-    }
-    else{
-        printf("Exiting the program\n");
     }
 }
 

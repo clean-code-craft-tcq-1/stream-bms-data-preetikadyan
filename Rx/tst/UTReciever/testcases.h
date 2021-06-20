@@ -14,3 +14,7 @@ extern void TC_CalculateMovingAverage(void);
 extern void TC_CalculatingNewMovingAverage(void);
 extern void TC_RecieverExitIfListReadingNotAllowed(void);
 extern void TC_RecieverExitsDuringIllegalFormat(void);
+extern void TC_StringToEnumConverter(void);
+extern void TC_EvaluatePrintfParametersInCalculateMax(void);
+extern void TC_EvaluatePrintfParametersInCalculateMin(void);
+

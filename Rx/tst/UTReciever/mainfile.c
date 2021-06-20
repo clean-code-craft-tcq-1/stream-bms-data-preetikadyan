@@ -29,6 +29,12 @@ TC_CalculatingNewMovingAverage();
 Environment_Initialization(); 
 TC_RecieverExitIfListReadingNotAllowed(); 
 Environment_Initialization(); 
-TC_RecieverExitsDuringIllegalFormat();
+TC_RecieverExitsDuringIllegalFormat(); 
+Environment_Initialization(); 
+TC_StringToEnumConverter(); 
+Environment_Initialization(); 
+TC_EvaluatePrintfParametersInCalculateMax(); 
+Environment_Initialization(); 
+TC_EvaluatePrintfParametersInCalculateMin();
 return 0;
 }
