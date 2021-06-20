@@ -54,6 +54,7 @@ Status_t GetBatteryParamValueFromList(int *buf)
 char fmt[150];
 char paramname[20];
 int value;
+float MovingAverage;
 
 int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value)
 {
@@ -61,6 +62,14 @@ int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value)
     strcpy(par_paramname,paramname);
     value = par_value;
 }
+
+int printfmockforMovingAverage(char *par_fmt, float par_MovingAverage, char *par_pramname)
+{
+    strcpy(par_fmt,fmt);
+    strcpy(par_pramname,paramname);
+    MovingAverage = par_MovingAverage;
+}
+
 
 void ResetStubs (void)
 {

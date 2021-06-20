@@ -35,6 +35,8 @@ TC_StringToEnumConverter();
 Environment_Initialization(); 
 TC_EvaluatePrintfParametersInCalculateMax(); 
 Environment_Initialization(); 
-TC_EvaluatePrintfParametersInCalculateMin();
+TC_EvaluatePrintfParametersInCalculateMin(); 
+Environment_Initialization(); 
+TC_EvaluatePrintfParametersInMovingAverage();
 return 0;
 }

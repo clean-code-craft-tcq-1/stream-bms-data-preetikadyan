@@ -19,5 +19,7 @@ extern int GetBatteryParamValueFromList_value;
 extern char fmt[150];
 extern char paramname[20];
 extern int value;
+extern float MovingAverage;
 extern int printfmockforMaxandMin(char *par_fmt, char *par_paramname, int par_value);
+extern int printfmockforMovingAverage(char *par_fmt, float par_MovingAverage, char *par_pramname);
 extern void ResetStubs (void);
