@@ -37,7 +37,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
 	      printf("temp value is %s \n", temp_data.c_str());
               temp_arr[count_temp] = std::stoi(temp_data);
 	      parameter.Temperrature = temp_arr[count_temp]; 
-	      printf("temp value in parameter is %d \n", parameter.Temperrature);
+	      printf("temp value in parameter is %f \n", parameter.Temperrature);
               count_temp++;
             }
         }
@@ -51,8 +51,8 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               //temp_data = temp_data1 + temp_data2;
              // soc_arr[count_soc] = std::stoi(temp_data);
               //count_soc++;
-            }
-        }
+           // }
+       // }
     }
      // for(int i =0;i<count_temp;i++)
      //   {
