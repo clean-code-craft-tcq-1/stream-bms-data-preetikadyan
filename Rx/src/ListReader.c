@@ -52,7 +52,7 @@ static void Readthestreamuntil(char par_ch)
     
 }
 
-static int IsCharInputANumber(ch)
+static int IsCharInputANumber(char ch)
 {
     int ret = 0;
     if((ch >= '0') && (ch <='9'))
