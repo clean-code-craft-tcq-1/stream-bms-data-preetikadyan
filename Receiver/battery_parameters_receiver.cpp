@@ -9,6 +9,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
     Parameters parameter;
     std::getline(std::cin, sender_data);
     string temp_data,temp_data1,temp_data2;
+    printf("Sender data is %s \n", sender_data);
 
     int temp_arr[6],soc_arr[6];
     int count_temp,count_soc= 0;
