@@ -1,4 +1,4 @@
-name: Build and Run
+name: project
 
 on: [push, pull_request]
 
@@ -20,4 +20,4 @@ jobs:
       - name : Sender | Reciever
         run: |
           gcc -DMAIN -o RxExec  ./Rx/src/*.c
-          python ./GenerateSenderOutput.py | RxExec.exe
+          python ./GenerateSenderOutput.py | ./RxExec
