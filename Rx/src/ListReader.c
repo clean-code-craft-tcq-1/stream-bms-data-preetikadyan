@@ -27,7 +27,7 @@
 #include <assert.h>             /* for assert */
 #include "ListReader.h"         /* Units header */
 
-ListReader_t ListReaderState = ListReader_ContainsData;
+ListReader_t ListReaderState;
 
 //Test double.
 int (*scan)(const char *format, ...) = &scanf;

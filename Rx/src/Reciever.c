@@ -90,14 +90,19 @@ typedef struct {
     int MaxNumOfSamplesForMovingAverage;
 }CalculateMovingAvergaeStateSpecific_t;
 
-static CalculateMovingAvergaeStateSpecific_t CalculateMovingAvergaeStateSpecific[BatteryParameter_TotalNumber];
+static CalculateMovingAvergaeStateSpecific_t CalculateMovingAvergaeStateSpecific[BatteryParameter_TotalNumber] = {
+    {
+        0,0,0.0,5
+    },
+    {
+        0,0,0.0,5
+    }
+};
 
 void Execute_CalculateMovingAverage(statemachine_t *sm)
 {
-
     CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples += sm->parambuff[sm->param];
     CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected++;
-
     if(CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected == 
         CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage )
     {
@@ -105,7 +110,7 @@ void Execute_CalculateMovingAverage(statemachine_t *sm)
                                 (CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples/CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage);
         CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected = 0;
         CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples = 0;
-        printf("%f is the moving average\n",CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage);
+        printf("%f is the moving average for %s\n",CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage,BatteryParameterToString[sm->param]);
     }
 }
 
@@ -160,7 +165,7 @@ statemachine_t Reciever_sm = {
 
 void Reciever_Main(void)
 {
-    ListReaderInit();
+   ListReaderInit();
     Reciever_sm.Execute(&Reciever_sm);
 }
 

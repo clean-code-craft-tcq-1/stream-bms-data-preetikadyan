@@ -89,3 +89,6 @@ def SenderOutputGeneratedOrNot(Sent_or_not):
         return 'Battery parameter generated for Receiver'
     else:
         return 'Battery parameter not generated for Receiver'
+
+if __name__ == "__main__":
+    RandomGenerateParameter(10)
