@@ -29,7 +29,9 @@ void Battery_Parameter_Receiver::receive_data_from_console()
                   //temp_data3 = sender_data[i+2];
               //}
               temp_data = temp_data1 + temp_data2;
-              temp_arr[count_temp] = std::stoi(temp_data);
+	      std::cout << "temperature " << temp_data << std::endl;
+             // temp_arr[count_temp] = std::stoi(temp_data);
+	      temp_arr[count_temp] = temp_data;
               count_temp++;
             }
         }
@@ -41,7 +43,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
               temp_data1 = sender_data[i];
               temp_data2 = sender_data[i+1];
               temp_data = temp_data1 + temp_data2;
-              soc_arr[count_soc] = std::stoi(temp_data);
+              soc_arr[count_soc] = temp_data;
               count_soc++;
             }
         }
