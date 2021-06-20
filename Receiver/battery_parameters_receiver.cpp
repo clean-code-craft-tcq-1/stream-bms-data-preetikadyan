@@ -8,7 +8,6 @@ void Battery_Parameter_Receiver::get_data_from_console()
 {
     string sender_data_heading; 
     string sender_data;
-    Parameters parameter;
     
      std::getline(std::cin, sender_data_heading);
      std::getline(std::cin, sender_data);
