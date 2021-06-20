@@ -15,15 +15,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
     - name: build
-      working-directory: ./Rx/tst/UT/UTListReader/
-      run: gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c
+      run: gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker ./Rx/tst/UTListReader/*.c
       
     - name: run
-      working-directory: ./Rx/tst/UT/UTListReader/
       run: ./testchecker
 
     - name: collect coverage
-      working-directory: ./Rx/tst/UT/UTListReader/
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html
 
     - name: 'Upload Artifact'
