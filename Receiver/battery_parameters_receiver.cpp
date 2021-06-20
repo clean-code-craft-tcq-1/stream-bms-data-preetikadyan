@@ -8,7 +8,7 @@ void Battery_Parameter_Receiver::receive_data_from_console()
 {
     string sender_data;
     Parameters parameter;
-    for(int i = 0,i<=7,i++)
+    for(int i = 0;i<=7;i++)
     {
       std::getline(std::cin, sender_data);
        printf("Sender data is %s \n", sender_data.c_str());	    
