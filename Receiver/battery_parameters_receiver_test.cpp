@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "test/catch.hpp"
+#include "catch.hpp"
 #include <iostream>
 #include "battery_parameters_receiver.h"
 using namespace std;
