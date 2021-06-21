@@ -11,7 +11,7 @@ class Battery_Parameter_Receiver
 	
 	public:
 	// get data via pipe from console which is written by Sender
-	void get_data_from_console();
+	bool get_data_from_console();
 	
 	//Extract Temperature values from Sender data
 	void get_temperature_values(string sender_data);
