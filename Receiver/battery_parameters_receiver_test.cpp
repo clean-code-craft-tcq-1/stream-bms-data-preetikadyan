@@ -22,8 +22,8 @@ TEST_CASE(" Received Parameter values statistics")
 	
 	
 	// SOC values from Sender data
-     	vector<int> parameter_values = {45,3,99,84,66,18};
-	string parameter_type = "SOC";
+     	parameter_values = {45,3,99,84,66,18};
+	parameter_type = "SOC";
 	
 	// Check for Temperature minimum value
 	assert(obj_Battery_Parameter_Receiver.calculate_parameter_min(parameter_values,parameter_type) == 3);
