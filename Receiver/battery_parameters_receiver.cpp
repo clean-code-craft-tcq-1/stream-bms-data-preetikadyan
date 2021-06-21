@@ -31,6 +31,7 @@ void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
         }
        
     }
+    std::cout << "temp values are: "<<temperature_values[0] << ',' << temperature_values[1] << ',' << temperature_values[2] << ',' << temperature_values[3] << ',' << temperature_values[4] << ',' << temperature_values[5] << std::endl;
     calculate_parameter_max(temperature_values);
     calculate_parameter_min(temperature_values);
     calculate_parameter_avg(temperature_values);
@@ -51,6 +52,7 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
 	      soc_values.push_back(std::stoi(soc_data));
         }
     }
+    std::cout << "SOC values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
     calculate_parameter_max(soc_values);
     calculate_parameter_min(soc_values);
     calculate_parameter_avg(soc_values);
