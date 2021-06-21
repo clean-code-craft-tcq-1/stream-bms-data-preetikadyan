@@ -4,6 +4,10 @@
 #include <string.h>
 
 
+/**
+ * assert()'s are not tested.
+ */ 
+
 void Environment_Initialization(void)
 {
     
@@ -107,6 +111,7 @@ void TC_MaxValueChangesIfstreamMaxChanges(void)
  * Calculating Max:
  * The max value is the value which is the maximum in the stream. 
  * So here stream values will be decremented and see if the Maximum is chaning.
+ * Maximum value should not change
  */
 
 void TC_MaxValueDoesntChangeIfstreamMaxDoesntChange(void)
@@ -281,6 +286,10 @@ void TC_StringToEnumConverter(void)
     assert(strcmp(BatteryParameterToString[BatteryParameter_StateOfCharge] ,"StateOfCharge") == 0);
 }
 
+/**
+ * This testcase evaluates the string printed for Max Value
+ */ 
+
 void TC_EvaluatePrintfParametersInCalculateMax(void)
 {
     Reciever_sm.param = BatteryParameter_Temparature;
@@ -292,6 +301,9 @@ void TC_EvaluatePrintfParametersInCalculateMax(void)
     assert(value == CalculateMaxStateSpecificData.maxvalue[BatteryParameter_Temparature]);
 }
 
+/**
+ * This testcase evaluates the string printed for Min Value
+ */
 void TC_EvaluatePrintfParametersInCalculateMin(void)
 {
     Reciever_sm.param = BatteryParameter_Temparature;
@@ -302,6 +314,11 @@ void TC_EvaluatePrintfParametersInCalculateMin(void)
     assert(strcmp(paramname,"Temparature")==0);
     assert(value ==  CalculateMinStateSpecificData.minvalue[BatteryParameter_Temparature]);
 }
+
+
+/**
+ * This testcase evaluates the string printed for Moving Average
+ */
 
 void TC_EvaluatePrintfParametersInMovingAverage(void)
 {
@@ -314,10 +331,23 @@ void TC_EvaluatePrintfParametersInMovingAverage(void)
     assert(MovingAverage ==  CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].MovingAverage);
 }
 
-void TC_EvaluateIfListReaderInitCalled(void)
+static void Execute_Fake(statemachine_t *this)
+{
+    if(call_ListReaderInit != 1)
+    {
+        call_ListReaderInit = 100;
+    }
+}
+
+/**
+ * This testcase verifies that ListReaderInit() is called before statemachine.
+ */ 
+
+void TC_EvaluateIfListReaderInitCalledBeforeRecieverStatemachine(void)
 {
     GenerateValuesForBatteryParam = &GenerateIncrementalValues;
     MaxCall_IsListReadingAllowed = 1;
+    Reciever_sm.Execute = &Execute_Fake; 
     Reciever_Main();
     assert(call_ListReaderInit == 1);
 }

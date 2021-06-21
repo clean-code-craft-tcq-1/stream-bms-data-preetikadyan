@@ -18,4 +18,4 @@ extern void TC_StringToEnumConverter(void);
 extern void TC_EvaluatePrintfParametersInCalculateMax(void);
 extern void TC_EvaluatePrintfParametersInCalculateMin(void);
 extern void TC_EvaluatePrintfParametersInMovingAverage(void);
-extern void TC_EvaluateIfListReaderInitCalled(void);
+extern void TC_EvaluateIfListReaderInitCalledBeforeRecieverStatemachine(void);

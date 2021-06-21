@@ -40,7 +40,7 @@ TC_EvaluatePrintfParametersInCalculateMin();
 Environment_Initialization(); 
 TC_EvaluatePrintfParametersInMovingAverage(); 
 Environment_Initialization(); 
-TC_EvaluateIfListReaderInitCalled();
+TC_EvaluateIfListReaderInitCalledBeforeRecieverStatemachine();
 printf("End Of TestCase Execution \n");
 return 0;
 }
