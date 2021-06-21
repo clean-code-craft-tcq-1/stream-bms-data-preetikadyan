@@ -74,13 +74,13 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
     std::cout << "SOC values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
 
      // Function call to calculate the maximum value of parameter
-    calculate_parameter_max(SOC_values, parameter_type);
+    calculate_parameter_max(soc_values, parameter_type);
     
     // Function call to calculate the minimum value of parameter
-    calculate_parameter_min(SOC_values, parameter_type);
+    calculate_parameter_min(soc_values, parameter_type);
 
     // Function call to calculate the Simple moving average of last 5 values value of parameter
-    calculate_parameter_sma(SOC_values, parameter_type);
+    calculate_parameter_sma(soc_values, parameter_type);
 }
 
 
