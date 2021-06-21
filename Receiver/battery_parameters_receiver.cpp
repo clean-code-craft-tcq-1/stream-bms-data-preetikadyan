@@ -13,7 +13,7 @@ bool Battery_Parameter_Receiver::get_data_from_console()
     std::getline(std::cin, sender_data_heading); // Get Heading from Console
     std::getline(std::cin, sender_data); // Get Actual sender data from console
    
-    if(sender_data)
+    if(!(sender_data.empty()))
       {
 	   // Function call to extract the temperature data from Sender data
 	    get_temperature_values(sender_data); 
