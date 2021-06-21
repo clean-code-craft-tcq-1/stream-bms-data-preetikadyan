@@ -4,22 +4,28 @@ using namespace std;
 #include <sstream>
 #include <cctype> 
 
+// Function to receive the sender data from Console via pipe. 
 void Battery_Parameter_Receiver::get_data_from_console()
 {
-    string sender_data_heading; 
-    string sender_data;
+    string sender_data_heading; // To store Sender data heading
+    string sender_data; // To store the Actual data after heading
     
-    std::getline(std::cin, sender_data_heading);
-    std::getline(std::cin, sender_data);
-    get_temperature_values(sender_data);
+    std::getline(std::cin, sender_data_heading); // Get Heading from Console
+    std::getline(std::cin, sender_data); // Get Actual sender data from console
+   
+    // Function call to extract the temperature data from Sender data
+    get_temperature_values(sender_data); 
+	
+   // Function call to extract the SOC data from Sender data
     get_soc_values(sender_data);
 }
 
+//Function to Extract the temperature value from complete sender data
 void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
 {
     string temp_data;
-    string parameter_type;
-    int data_length = sender_data.length() ;
+    string parameter_type; // To Store parameter type (Temperature or SOC)
+    int data_length = sender_data.length() ; // Length of Sender data string
     
     for(int string_index=0; string_index < data_length; string_index++)
     {
@@ -33,17 +39,25 @@ void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
         }
        
     }
+    // Print all the Temperature values from Sender data
     std::cout << "Temperature values are: "<<temperature_values[0] << ',' << temperature_values[1] << ',' << temperature_values[2] << ',' << temperature_values[3] << ',' << temperature_values[4] << ',' << temperature_values[5] << std::endl;
+    
+    // Function call to calculate the maximum value of parameter
     calculate_parameter_max(temperature_values, parameter_type);
+    
+    // Function call to calculate the minimum value of parameter
     calculate_parameter_min(temperature_values, parameter_type);
-    calculate_parameter_avg(temperature_values, parameter_type);
+
+    // Function call to calculate the Simple moving average of last 5 values value of parameter
+    calculate_parameter_sma(temperature_values, parameter_type);
 }
 
+//Function to Extract the SOC value from complete sender data
 void Battery_Parameter_Receiver::get_soc_values(string data)
 {
     string soc_data;
-    string parameter_type;
-    int data_length = data.length() ;
+    string parameter_type; // To Store parameter type (Temperature or SOC)
+    int data_length = data.length() ; // Length of Sender data string
     
     for(int string_index=0; string_index < data_length; string_index++)
     {
@@ -56,12 +70,21 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
 	      parameter_type = "SOC";
         }
     }
+    // Print all the SOC values from Sender data
     std::cout << "SOC values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
-    calculate_parameter_max(soc_values, parameter_type);
-    calculate_parameter_min(soc_values, parameter_type);
-    calculate_parameter_avg(soc_values, parameter_type);
+
+     // Function call to calculate the maximum value of parameter
+    calculate_parameter_max(SOC_values, parameter_type);
+    
+    // Function call to calculate the minimum value of parameter
+    calculate_parameter_min(SOC_values, parameter_type);
+
+    // Function call to calculate the Simple moving average of last 5 values value of parameter
+    calculate_parameter_sma(SOC_values, parameter_type);
 }
 
+
+// Function to calculate the maximum value of parameter
 int Battery_Parameter_Receiver::calculate_parameter_max(vector<int> parameter_values, string parameter_type)
 {
     int max = parameter_values[0];
@@ -73,10 +96,12 @@ int Battery_Parameter_Receiver::calculate_parameter_max(vector<int> parameter_va
             
         }
     }
+    // Print Maximum value of parameter
     std::cout << "Maximum value of "<< parameter_type << " in the upcoming stream is : "<< max  << std::endl;
     return max;
 }
 
+// Function to calculate the minimum value of parameter
 int Battery_Parameter_Receiver::calculate_parameter_min(vector<int> parameter_values, string parameter_type)
 {
     int min = parameter_values[0] ;
@@ -88,18 +113,21 @@ int Battery_Parameter_Receiver::calculate_parameter_min(vector<int> parameter_va
             
         }
     }
- 
+    // Print Minimum value of parameter
     std::cout << "Minimum value of "<< parameter_type <<" in the upcoming stream is : "<< min  << std::endl;
     return min;
 }
 
-int Battery_Parameter_Receiver::calculate_parameter_avg(vector<int> parameter_values, string parameter_type)
+// Function to calculate the Simple moving average of last 5 values value of parameter
+int Battery_Parameter_Receiver::calculate_parameter_sma(vector<int> parameter_values, string parameter_type)
 {
     int size = sizeof(parameter_values)/sizeof(parameter_values[0]);
     int sum; int avg;
     sum = parameter_values[size-1]+ parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4]+parameter_values[size-5];   
    
     avg = sum/5; // Simple moving avearge for Last 5 readings.
+	
+    // Print SMA of last 5 values
     std::cout << "Simple moving average for parameter "<< parameter_type <<" of Last 5 values is : "<< avg  << std::endl;
     return avg;
 }
