@@ -33,7 +33,7 @@ void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
         }
        
     }
-    std::cout << "temp values are: "<<temperature_values[0] << ',' << temperature_values[1] << ',' << temperature_values[2] << ',' << temperature_values[3] << ',' << temperature_values[4] << ',' << temperature_values[5] << std::endl;
+    std::cout << "Temperature values are: "<<temperature_values[0] << ',' << temperature_values[1] << ',' << temperature_values[2] << ',' << temperature_values[3] << ',' << temperature_values[4] << ',' << temperature_values[5] << std::endl;
     calculate_parameter_max(temperature_values, parameter_type);
     calculate_parameter_min(temperature_values, parameter_type);
     calculate_parameter_avg(temperature_values, parameter_type);
@@ -100,7 +100,7 @@ int Battery_Parameter_Receiver::calculate_parameter_avg(vector<int> parameter_va
     sum = parameter_values[size-1]+ parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4]+parameter_values[size-5];   
    
     avg = sum/5; // Simple moving avearge for Last 5 readings.
-    std::cout << "Simple moving average for parameter "<< parameter_type <<" of Last 5 values is "<< avg  << std::endl;
+    std::cout << "Simple moving average for parameter "<< parameter_type <<" of Last 5 values is : "<< avg  << std::endl;
     return avg;
 }
 
