@@ -34,7 +34,7 @@ TEST_CASE(" Received Parameter values statistics")
  
 }
 
-TEST_CASE(" Received Parameter values statistics")
+TEST_CASE(" Received Parameter values statistics on real time dynamic console data")
 {
 	// To print the statistics in console (Min, Max, SMA) from the dynamically generated data by Sender on Console
 	
