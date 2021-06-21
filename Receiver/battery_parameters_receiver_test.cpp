@@ -1,7 +1,7 @@
-#include <iostream>
-#include "battery_parameters_receiver.h"
 #define CATCH_CONFIG_MAIN
 #include "test/catch.hpp"
+#include <iostream>
+#include "battery_parameters_receiver.h"
 using namespace std;
 
 TEST_CASE(" Received Parameter values statistics")
