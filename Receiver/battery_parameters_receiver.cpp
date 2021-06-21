@@ -12,7 +12,7 @@ bool Battery_Parameter_Receiver::get_data_from_console()
     
     std::getline(std::cin, sender_data_heading); // Get Heading from Console
     std::getline(std::cin, sender_data); // Get Actual sender data from console
-    std::cout << (sender_data_heading+sender_data) << std::endl
+    std::cout << (sender_data_heading+sender_data) << std::endl;
    
     if(!(sender_data.empty()))
       {
