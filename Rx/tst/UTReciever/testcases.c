@@ -243,6 +243,33 @@ void TC_CalculatingNewMovingAverage(void)
 
 
 /**
+ * Calculating Moving Average:
+ * Check no floating value is being trimmed or lost during moving average calculation.
+ * 
+ * brief history behind this testcase:
+ * When i designed the code first, naughty me introduced a bug.
+ * i did    float = (int/int)   thinking this converts the into float.
+ * again the same naughty me noticed this and changed into following
+ *     float = (((float)int)/int)
+ * 
+ * Now, lucky me MISRA analysis is not being done here.
+ */ 
+
+void TC_VerifyIfFloatingIsTrimmedInMovingAverage(void)
+{
+    float movingAverage;
+    CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].NumberofSamplesCollected = 4;
+    CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].SumOfSamples = 26;
+    Reciever_sm.param = BatteryParameter_Temparature;
+    Execute_CalculateMovingAverage(&Reciever_sm);
+    movingAverage = (((float)26)/5);
+    assert(movingAverage ==  CalculateMovingAvergaeStateSpecific[BatteryParameter_Temparature].MovingAverage);
+}
+
+
+
+
+/**
  * Statemachine Exits if IsListReading is not Allowed.
  */ 
 

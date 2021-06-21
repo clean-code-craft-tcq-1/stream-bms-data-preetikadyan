@@ -12,6 +12,7 @@ extern void TC_RetainingOlderMovingAverage(void);
 extern void TC_VeryFirstMovingAverage(void);
 extern void TC_CalculateMovingAverage(void);
 extern void TC_CalculatingNewMovingAverage(void);
+extern void TC_VerifyIfFloatingIsTrimmedInMovingAverage(void);
 extern void TC_RecieverExitIfListReadingNotAllowed(void);
 extern void TC_RecieverExitsDuringIllegalFormat(void);
 extern void TC_StringToEnumConverter(void);

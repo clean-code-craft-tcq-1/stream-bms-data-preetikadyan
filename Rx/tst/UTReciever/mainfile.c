@@ -28,6 +28,8 @@ TC_CalculateMovingAverage();
 Environment_Initialization(); 
 TC_CalculatingNewMovingAverage(); 
 Environment_Initialization(); 
+TC_VerifyIfFloatingIsTrimmedInMovingAverage(); 
+Environment_Initialization(); 
 TC_RecieverExitIfListReadingNotAllowed(); 
 Environment_Initialization(); 
 TC_RecieverExitsDuringIllegalFormat(); 
