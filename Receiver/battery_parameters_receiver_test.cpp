@@ -35,12 +35,5 @@ TEST_CASE(" Received Parameter values statistics")
 }
 
 
-// To Print the Input stream from Console
-int main()
-{
-	Battery_Parameter_Receiver bp_receiver;
-        bp_receiver.get_data_from_console();
-        return 0;
-}
 
 
