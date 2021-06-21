@@ -72,3 +72,9 @@ This section lists the minimum functionality of the Sender and Receiver.
 ## Quality Parameters
 
 Setup the quality parameters of your project (duplication, complexity, coverage, warnings) using the GitHub workflow yml files.
+
+### Sender OutPut Generated in GenerateSenderOutput.py file
+
+![image](https://user-images.githubusercontent.com/13776900/119861981-a2c62a80-bf35-11eb-8933-96122b6a2d64.png)
+
+
