@@ -34,6 +34,17 @@ TEST_CASE(" Received Parameter values statistics")
  
 }
 
+TEST_CASE(" Received Parameter values statistics")
+{
+	// To print the statistics in console (Min, Max, SMA) from the dynamically generated data by Sender on Console
+	
+	// Object creation of Class Battery_Parameter_Receiver
+	Battery_Parameter_Receiver obj_Battery_Parameter_Receiver;
+	// Fails if No data is received from Sender Console
+	assert(obj_Battery_Parameter_Receiver.get_data_from_console() == true);
+	
+}
+
 
 
 
