@@ -29,7 +29,7 @@ void Battery_Parameter_Receiver::get_temperature_values(string sender_data)
               temp_data[0] =sender_data[string_index];
               temp_data[1] =sender_data[string_index+1];
 	      temperature_values.push_back(std::stoi(temp_data)); 
-	      parameter_type = "Temperature"
+	      parameter_type = "Temperature";
         }
        
     }
@@ -53,7 +53,7 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
               soc_data[0] = data[string_index];
               soc_data[1] = data[string_index+1];
 	      soc_values.push_back(std::stoi(soc_data));
-	      parameter_type = "SOC"
+	      parameter_type = "SOC";
         }
     }
     std::cout << "SOC values are: "<<soc_values[0] << ',' << soc_values[1] << ',' << soc_values[2] << ',' << soc_values[3] << ',' << soc_values[4] << ',' << soc_values[5] << std::endl;
