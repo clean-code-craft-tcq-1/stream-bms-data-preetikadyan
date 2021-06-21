@@ -111,7 +111,7 @@ void Execute_CalculateMovingAverage(statemachine_t *sm)
         CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage )
     {
         CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage = 
-                                (CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples/CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage);
+                                (((float)CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples)/CalculateMovingAvergaeStateSpecific[sm->param].MaxNumOfSamplesForMovingAverage);
         CalculateMovingAvergaeStateSpecific[sm->param].NumberofSamplesCollected = 0;
         CalculateMovingAvergaeStateSpecific[sm->param].SumOfSamples = 0;
         print("%f is the moving average for %s\n",CalculateMovingAvergaeStateSpecific[sm->param].MovingAverage,BatteryParameterToString[sm->param]);
