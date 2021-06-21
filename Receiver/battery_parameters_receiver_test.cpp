@@ -1,13 +1,16 @@
 #include <iostream>
 #include "battery_parameters_receiver.h"
+#define CATCH_CONFIG_MAIN
+#include "test/catch.hpp"
 using namespace std;
 
-int main()
+TEST_CASE(" Received Parameter values statistics")
 {
-	Battery_Parameter_Receiver bp_receiver;
-	
-	bp_receiver.get_data_from_console();
-
-	return 0;
+     	vector<int> parameter_values = {10,15,89,2,56,67};
+	string parameter_type = "Temperature";
+	Battery_Parameter_Receiver obj_Battery_Parameter_Receiver;
+	EXPECT_EQ(2, obj_Battery_Parameter_Receiver.calculate_parameter_min(parameter_values,parameter_type));
+ 
 }
+
 
