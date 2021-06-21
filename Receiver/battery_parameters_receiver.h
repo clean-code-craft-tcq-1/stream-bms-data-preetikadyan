@@ -13,7 +13,7 @@ class Battery_Parameter_Receiver
 	void get_data_from_console();
 	void get_temperature_values(string sender_data);
 	void get_soc_values(string sender_data);
-	int calculate_parameter_max(vector<int> parameter_values);
-	int calculate_parameter_min(vector<int> parameter_values);
-	int calculate_parameter_avg(vector<int> parameter_values);
+	int calculate_parameter_max(vector<int> parameter_values, string parameter_type);
+	int calculate_parameter_min(vector<int> parameter_values, string parameter_type);
+	int calculate_parameter_avg(vector<int> parameter_values, string parameter_type);
 };
