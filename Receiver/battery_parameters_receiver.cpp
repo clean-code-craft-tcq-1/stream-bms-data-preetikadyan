@@ -5,7 +5,7 @@ using namespace std;
 #include <cctype> 
 
 // Function to receive the sender data from Console via pipe. 
-void Battery_Parameter_Receiver::get_data_from_console()
+bool Battery_Parameter_Receiver::get_data_from_console()
 {
     string sender_data_heading; // To store Sender data heading
     string sender_data; // To store the Actual data after heading
@@ -13,11 +13,21 @@ void Battery_Parameter_Receiver::get_data_from_console()
     std::getline(std::cin, sender_data_heading); // Get Heading from Console
     std::getline(std::cin, sender_data); // Get Actual sender data from console
    
-    // Function call to extract the temperature data from Sender data
-    get_temperature_values(sender_data); 
+    if(sender_data)
+      {
+	   // Function call to extract the temperature data from Sender data
+	    get_temperature_values(sender_data); 
+
+	   // Function call to extract the SOC data from Sender data
+	    get_soc_values(sender_data);
+	    
+	    return true;
+      }
+    else
+    {	
+	    return false;
+    }
 	
-   // Function call to extract the SOC data from Sender data
-    get_soc_values(sender_data);
 }
 
 //Function to Extract the temperature value from complete sender data
