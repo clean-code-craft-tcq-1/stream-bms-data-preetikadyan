@@ -73,7 +73,7 @@ int Battery_Parameter_Receiver::calculate_parameter_max(vector<int> parameter_va
             
         }
     }
-    std::cout << "Max value of "<< parameter_type << "in the upcoming stream : "<< max  << std::endl;
+    std::cout << "Maximum value of "<< parameter_type << " in the upcoming stream is : "<< max  << std::endl;
     return max;
 }
 
@@ -89,7 +89,7 @@ int Battery_Parameter_Receiver::calculate_parameter_min(vector<int> parameter_va
         }
     }
  
-    std::cout << "Min value of "<< parameter_type <<"in the upcoming stream : "<< min  << std::endl;
+    std::cout << "Minimum value of "<< parameter_type <<" in the upcoming stream is : "<< min  << std::endl;
     return min;
 }
 
@@ -100,7 +100,7 @@ int Battery_Parameter_Receiver::calculate_parameter_avg(vector<int> parameter_va
     sum = parameter_values[size-1]+ parameter_values[size-2]+parameter_values[size-3]+parameter_values[size-4]+parameter_values[size-5];   
    
     avg = sum/5; // Simple moving avearge for Last 5 readings.
-    std::cout << "Simple moving average for parameter "<< parameter_type <<"of Last 5 values "<< avg  << std::endl;
+    std::cout << "Simple moving average for parameter "<< parameter_type <<" of Last 5 values is "<< avg  << std::endl;
     return avg;
 }
 
