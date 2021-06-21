@@ -45,7 +45,7 @@ void Battery_Parameter_Receiver::get_soc_values(string data)
     {
         if((data[string_index] == 's') && (data[string_index+1] == 't'))
         {
-              i=i+20;
+              string_index=string_index+20;
               soc_data[0] = data[string_index];
               soc_data[1] = data[string_index+1];
 	      soc_values.push_back(std::stoi(soc_data));
